@@ -30,10 +30,8 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 /**
  * @author Radoslaw Kamil Ejsmont <radoslaw.ejsmont@kuleuven.be>
  */
-abstract class AbstractShibbolethUserProvider implements UserProviderInterface {
+interface NewShibbolethUserProviderInterface extends UserProviderInterface {
 
-        abstract function createUser(ShibbolethUserToken $token);
-        function loadUser(ShibbolethUserToken $token) {
-            return $this->loadUserByUsername($token->getUsername());
-        }
+        function createUser(ShibbolethUserToken $token);
+        function loadUser(ShibbolethUserToken $token);
 }

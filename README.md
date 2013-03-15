@@ -120,7 +120,7 @@ This example uses Propel ORM to store users.
 	use YourProjectNamespace\Model\User;
 	use YourProjectNamespace\Model\UserQuery;
 
-	use KULeuven\ShibbolethBundle\Security\AbstractShibbolethUserProvider;
+	use KULeuven\ShibbolethBundle\Security\NewShibbolethUserProviderInterface;
 	use KULeuven\ShibbolethBundle\Security\ShibbolethUserToken;
 
 	use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

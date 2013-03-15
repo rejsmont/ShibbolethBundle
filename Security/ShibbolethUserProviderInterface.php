@@ -27,7 +27,7 @@
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * @deprecated since version 6c984aabfa52eff8dc9f8de826a7401600b85e9a Extend AbstractShibbolethUserProvider instead
+ * @deprecated since version 6c984aabfa52eff8dc9f8de826a7401600b85e9a use NewShibbolethUserProviderInterface instead
  */
 interface ShibbolethUserProviderInterface extends UserProviderInterface{
 
