@@ -22,13 +22,17 @@
  * @copyright   (C) 2013 Ronny Moreas, KU Leuven
  * @license     http://www.gnu.org/licenses/lgpl-3.0-standalone.html LGPL-3
  */
- namespace KULeuven\ShibbolethBundle\Security;
+
+namespace KULeuven\ShibbolethBundle\Security;
+
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * @author Radoslaw Kamil Ejsmont <radoslaw.ejsmont@kuleuven.be>
  */
-abstract class AbstractShibbolethUserProvider implements ShibbolethUserProviderInterface {
+abstract class AbstractShibbolethUserProvider implements UserProviderInterface {
 
+        abstract function createUser(ShibbolethUserToken $token);
         function loadUser(ShibbolethUserToken $token) {
             return $this->loadUserByUsername($token->getUsername());
         }

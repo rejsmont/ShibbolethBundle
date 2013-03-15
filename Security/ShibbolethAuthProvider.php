@@ -90,7 +90,7 @@ class ShibbolethAuthProvider implements AuthenticationProviderInterface {
 
 	public function retrieveUser($token) {
 		try {
-                        if ($this->userProvider instanceof ShibbolethUserProviderInterface) {
+                        if ($this->userProvider instanceof AbstractShibbolethUserProvider) {
                             $user = $this->userProvider
                                             ->loadUser($token);
                         } else {
@@ -111,7 +111,8 @@ class ShibbolethAuthProvider implements AuthenticationProviderInterface {
 			}
 
 		} catch (UsernameNotFoundException $notFound) {
-			if ($this->userProvider instanceof ShibbolethUserProviderInterface) {
+			if (($this->userProvider instanceof AbstractShibbolethUserProvider)||
+                            ($this->userProvider instanceof ShibbolethUserProviderInterface)) {
 				$user = $this->userProvider->createUser($token);
 				if ($user === null) {
 					$user = $token->getUsername();
